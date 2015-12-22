@@ -1,0 +1,22 @@
+<mongoChangeLog>
+    <changeSet changeId="ChangeSet-8" author="jhipster">
+        <script>
+         db.T_FOLDER.insert(
+        {
+                  "_id" : new ObjectId("5515230d4df1e47ccf05563a"),
+                  "title" : "Apuntes",
+                  "creationMoment": new Date(),
+                  "groupId" : "551523074df1e47ccf055634",
+                  "archives": []
+            });
+            db.T_FOLDER.insert(
+           {
+                   "_id" : new ObjectId("5515230e4df1e47ccf05563b"),
+                   "title" : "Temario",
+                   "creationMoment": new Date(),
+                   "groupId" : "554ba295e4b08b11c7c3c7fe",
+                   "archives": []
+               });
+        </script>
+    </changeSet>
+</mongoChangeLog>

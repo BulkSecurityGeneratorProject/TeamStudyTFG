@@ -1,0 +1,14 @@
+<mongoChangeLog>
+	<changeSet changeId="ChangeSet-5" author="jhipster">
+		<script>
+			db.T_REPLY.insert(
+			{
+				"_id" : new ObjectId("551523034df1e47ccf055630"),
+				"description" : "Efectivamente",
+				"creationMoment": new Date(),
+				"messageId": "551523054df1e47ccf055632",
+				"userId": "554b9cabe4b08b11c7c3c7ef"
+			});
+		</script>
+	</changeSet>
+</mongoChangeLog>

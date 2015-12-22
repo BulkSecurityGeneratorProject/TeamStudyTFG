@@ -1,0 +1,89 @@
+
+<!--Sidebar Right -->
+<!--  ng-init="scrollDiv();" -->
+<div class="row">
+	<div id="sright" class="" ng-switch=isAuthenticated()>
+		<div
+			ng-show="(isInRole('ROLE_USER') || isInRole('ROLE_ADMIN')) && groupId != undefined">
+			<div class="box" style="margin: 15px;">
+
+				<div class="box-header">
+					<div class="box-name tablas">Alumnos</div>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link"> <i class="fa fa-chevron-up"></i></a>
+				</div>
+				<div class="box-content mobile_only">
+
+					<div class="scroll-area" data-spy="scroll" data-target="#myNavbar"
+						data-offset="0">
+						<div ng-repeat="student in students" class="list-group-item">
+							<div class="col-12">{{student.lastName}},{{student.firstName}}</div>
+							<small class="col-12">{{student.email}}</small>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<div ng-show="isInRole('ROLE_USER') && groupId != undefined"">
+			<div class="box" style="margin: 15px;">
+				<div class="box-header">
+					<div class="box-name tablas">Chat</div>
+				</div>
+				<div class="box-icons">
+					<a class="collapse-link"> <i class="fa fa-chevron-up"></i></a>
+				</div>
+				<div class="box-content mobile_only">
+
+
+
+					<div id="scrolldiv" class="scroll-area" data-spy="scroll"
+						data-target="#myNavbar">
+						<div ng-repeat="messageChat in messagesChat | orderBy:'-creationMoment' | limitTo:10">
+<!-- 						{{messageChat.userId}}-LL{{student}}-{{teacherGroup.id}} -->
+<!-- 						X{{messageChat.nameTeacher}} -- Y{{teacherGroup.firstName}} -->
+<!-- 						Z{{messageChat.nameUser}} -- Y{{student.firstName}} -->
+						<div ng-show="account.firstName == messageChat.nameUser"
+								class=" alert alert-info" role="alert">
+							<large class="col-12 letragrande" ><b>{{messageChat.nameUser}}</b></large>, <small class="col-12 negrita">{{messageChat.creationMoment
+								| date:'dd/MMM/yyyy h:mma'}}</small>
+
+							<div class="col-12">{{messageChat.content}}</div>
+						</div>
+						<div ng-show="account.firstName != messageChat.nameUser"
+								class=" alert alert-warning" role="alert">
+							<large class="col-12 letragrande"><b>{{messageChat.nameUser}}</b></large>, <small class="col-12 negrita">{{messageChat.creationMoment
+								| date:'dd/MMM/yyyy -- h:mma'}}</small>
+
+							<div class="col-12">{{messageChat.content}}</div>
+						</div>
+					</div>
+
+
+
+				</div>
+
+
+
+
+				<form ng-submit="createMessageChat()">
+					<div style="text-align: center;">
+						<input type="text" class="form-control" name="content"
+							ng-model="chat.content">
+						<div style="padding-top: 10%;">
+							<button type="submit" class="btn btn-default" class="ng-scope">Enviar</button>
+						</div>
+					</div>
+
+				</form>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+</div>
+<!--End Sidebar Right -->
+

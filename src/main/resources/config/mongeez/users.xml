@@ -1,0 +1,164 @@
+<mongoChangeLog>
+    <changeSet changeId="ChangeSet-1" author="jhipster">
+        <script>
+            db.T_USER.ensureIndex({"login" : 1});
+            db.T_USER.ensureIndex({"email" : 1});
+            db.T_USER.insert(
+            {
+                "_id" : new ObjectId("551522fe4df1e47ccf05562a"),
+                "login" : "admin",
+                "password" : "$2a$10$gSAhZrxMllrbgj/kkK9UceBPpChGWJA7SYIb1Mqo.n5aNLq1/oRrC",
+                "first_name": "",
+                "last_name": "Administrator",
+                "email": "",
+                "activated": true,
+                "is_teacher": true,
+                "lang_key": "en",
+                "created_by": "system",
+                "created_date": new Date(),
+                "authorities": [{"_id": "ROLE_ADMIN"}]
+            });        
+            db.T_USER.insert(
+            {	"_id" : new ObjectId("554b99e9e4b08b11c7c3c7ec"), 
+                "login" : "raquelrosario",
+                "password" : "$2a$10$aotxsU9uMTFz/8eLYDkvXOtd0pHw5ojiwkDQRT0zzK5v5T7d0R29K",
+                "first_name": "Raquel",
+                "last_name": "Rosario",
+                "email": "raquelrosario@us.es",
+                "activated": true,
+                "is_teacher": true,
+                "lang_key": "en",
+                "created_by": "system",
+                "created_date": new Date(),
+                "authorities": [{"_id": "ROLE_USER"}]
+            });            
+            db.T_USER.insert(
+            {	"_id" : new ObjectId("554b9ae9e4b08b11c7c3c7ed"), 
+                "login" : "vicentellopis",
+                "password" : "$2a$10$HjqzT7CNGEjVv.NHaF5Q9OH0hCouIq1gxNxhjILlHI1ihW.kEFowC",
+                "first_name": "Vicente",
+                "last_name": "Llopis",
+                "email": "vicentellopis@us.es",
+                "activated": true,
+                "is_teacher": true,
+                "lang_key": "en",
+                "created_by": "system",
+                "created_date": new Date(),
+                "authorities": [{"_id": "ROLE_USER"}]
+            });            
+            db.T_USER.insert(
+            {	"_id" : new ObjectId("554b9bb7e4b08b11c7c3c7ee"), 
+                "login" : "anaruiz",
+                "password" : "$2a$10$pGChPCM4Jbd/a9KIwZv06OQnSWMwVVr6xJyGDa9xYOoPL/6x/uFGa",
+                "first_name": "Ana",
+                "last_name": "Ruiz",
+                "email": "anaruiz@us.es",
+                "activated": true,
+                "is_teacher": true,
+                "lang_key": "en",
+                "created_by": "system",
+                "created_date": new Date(),
+                "authorities": [{"_id": "ROLE_USER"}]
+            });
+            db.T_USER.insert(
+            {	"_id" : new ObjectId("554b9cabe4b08b11c7c3c7ef"), 
+                "login" : "juanmartin",
+                "password" : "$2a$10$EoTLpf7.nvpHhMaR.sdPHOFWx049iwDj7YHL0aEhX7Hqh1OIEIHUi",
+                "first_name": "Juan",
+                "last_name": "Martin",
+                "email": "juanmartin@us.es",
+                "activated": true,
+                "is_teacher": false,
+                "lang_key": "en",
+                "created_by": "system",
+                "created_date": new Date(),
+                "authorities": [{"_id": "ROLE_USER"}]
+            });
+            db.T_USER.insert(
+            {	"_id" : new ObjectId("554b9d65e4b08b11c7c3c7f0"), 
+                "login" : "antoniotoro",
+                "password" : "$2a$10$O5OWSl.VG9TKv068dw4fzeWzHe5TKPFJuhvwliXkTzGoYap0TGytu",
+                "first_name": "Antonio",
+                "last_name": "Toro",
+                "email": "antoniotoro@us.es",
+                "activated": true,
+                "is_teacher": false,
+                "lang_key": "en",
+                "created_by": "system",
+                "created_date": new Date(),
+                "authorities": [{"_id": "ROLE_USER"}]
+            });
+            db.T_USER.insert(
+            {	"_id" : new ObjectId("554b9e30e4b08b11c7c3c7f1"), 
+                "login" : "conchigimeno",
+                "password" : "$2a$10$OPpl1XnoQ9g7HXCGDWodM.tm8sT0hSnkFlYvyq274o2F0aL56CkXy",
+                "first_name": "Conchi",
+                "last_name": "Gimeno",
+                "email": "conchigimeno@us.es",
+                "activated": true,
+                "is_teacher": false,
+                "lang_key": "en",
+                "created_by": "system",
+                "created_date": new Date(),
+                "authorities": [{"_id": "ROLE_USER"}]
+            });
+            db.T_USER.insert(
+            {	"_id" : new ObjectId("554b9efde4b08b11c7c3c7f2"), 
+                "login" : "ramonponce",
+                "password" : "$2a$10$6NhNms3dXY7GISVkpTFtyOQhjRyQ31MaUs26zT3ndRg/SPP.hFKNG",
+                "first_name": "Ramon",
+                "last_name": "Ponce",
+                "email": "ramonponce@us.es",
+                "activated": true,
+                "is_teacher": false,
+                "lang_key": "en",
+                "created_by": "system",
+                "created_date": new Date(),
+                "authorities": [{"_id": "ROLE_USER"}]
+            });
+            db.T_USER.insert(
+            {	"_id" : new ObjectId("554ba07ae4b08b11c7c3c7fc"), 
+                "login" : "cristianfernandez",
+                "password" : "$2a$10$IlrWf5mlYVPwK5nZc7xOZO.ME5PU6ow5G0kPwYZWzkRkQ75PHmfqq",
+                "first_name": "Cristian",
+                "last_name": "Fernandez",
+                "email": "cristianfernandez@us.es",
+                "activated": true,
+                "is_teacher": false,
+                "lang_key": "en",
+                "created_by": "system",
+                "created_date": new Date(),
+                "authorities": [{"_id": "ROLE_USER"}]
+            });
+            db.T_USER.insert(
+            {	"_id" : new ObjectId("554ba116e4b08b11c7c3c7fd"), 
+                "login" : "pedrograu",
+                "password" : "$2a$10$loBM5FjlqAnMklHXLix2Je55rJX8IOoL47XZOUR2Gl7zPE6ESy5Em",
+                "first_name": "Pedro",
+                "last_name": "Grau",
+                "email": "pedrograu@us.es",
+                "activated": true,
+                "is_teacher": false,
+                "lang_key": "en",
+                "created_by": "system",
+                "created_date": new Date(),
+                "authorities": [{"_id": "ROLE_USER"}]
+            });
+            db.T_USER.insert(
+            {	"_id" : new ObjectId("554b5116e4b08b11c7c3c7f3"), 
+                "login" : "diegogalocha",
+                "password" : "$2a$10$ulZPJR/Eq4Wuav/ml8oRpO3gW.EOzpDcgZ/BXiluliTBh0CKj/.A.",
+                "first_name": "Diego",
+                "last_name": "Galocha",
+                "email": "diegogalocha@us.es",
+                "activated": true,
+                "is_teacher": false,
+                "lang_key": "en",
+                "created_by": "system",
+                "created_date": new Date(),
+                "authorities": [{"_id": "ROLE_USER"}]
+            });
+            
+        </script>
+    </changeSet>
+</mongoChangeLog>

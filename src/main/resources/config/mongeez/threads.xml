@@ -1,0 +1,15 @@
+<mongoChangeLog>
+	<changeSet changeId="ChangeSet-3" author="jhipster">
+		<script>
+			db.T_THREAD.insert(
+			{
+				"_id" : new ObjectId("551523024df1e47ccf05562e"),
+				"title" : "Problema con derivadas",
+				"description" : "¿Cúal es la solución de x ^2?",
+				"creationMoment": new Date(),
+				"groupId" : "551523074df1e47ccf055634",
+				"userId" : "554b9cabe4b08b11c7c3c7ef",
+			});
+		</script>
+	</changeSet>
+</mongoChangeLog>

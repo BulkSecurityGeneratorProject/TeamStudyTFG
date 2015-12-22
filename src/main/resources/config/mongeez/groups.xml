@@ -1,0 +1,37 @@
+<mongoChangeLog>
+    <changeSet changeId="ChangeSet-2" author="jhipster">
+        <script>
+        db.T_GROUP.insert(
+        {
+                "_id" : new ObjectId("551523074df1e47ccf055634"),
+                "name" : "Matemáticas",
+                "description" : "Grupo de matemáticas",
+                "creationMoment": new Date(),
+                "teacherId": "554b99e9e4b08b11c7c3c7ec",
+                "alums": ["554b9cabe4b08b11c7c3c7ef","554b9d65e4b08b11c7c3c7f0"],
+                "wiki": {"text": "Aquí se expondrá el material de la asignatura"}
+            });
+            db.T_GROUP.insert(
+            {
+                  "_id" : new ObjectId("554ba295e4b08b11c7c3c7fe"),
+                  "name" : "Física",
+                  "description" : "Grupo de física",
+                  "creationMoment": new Date(),
+                  "teacherId": "554b9ae9e4b08b11c7c3c7ed",
+                  "alums": ["554b9e30e4b08b11c7c3c7f1","554b9efde4b08b11c7c3c7f2"],
+                  "wiki": {"text": "Fundamentos físicos de la informática"}
+                });
+                db.T_GROUP.insert(
+            {
+                  "_id" : new ObjectId("554ba370e4b08b11c7c3c7ff"),
+                  "name" : "Ingles",
+                  "description" : "Grupo de ingles",
+                  "creationMoment": new Date(),
+                  "teacherId": "554b9bb7e4b08b11c7c3c7ee",
+                  "alums": ["554ba07ae4b08b11c7c3c7fc","554ba116e4b08b11c7c3c7fd"],
+                  "wiki": {"text": "Hello class! Here is the results:"}
+                });
+
+        </script>
+    </changeSet>
+</mongoChangeLog>

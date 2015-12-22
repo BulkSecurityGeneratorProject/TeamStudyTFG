@@ -1,0 +1,14 @@
+<mongoChangeLog>
+	<changeSet changeId="ChangeSet-4" author="jhipster">
+		<script>
+			db.T_MESSAGE.insert(
+			{
+				"_id" : new ObjectId("551523054df1e47ccf055632"),
+				"description" : "La solución es 2x.",
+				"creationMoment": new Date(),
+				"threadId" : "551523024df1e47ccf05562e",
+				"userId" : "554b9d65e4b08b11c7c3c7f0"
+			});
+		</script>
+	</changeSet>
+</mongoChangeLog>

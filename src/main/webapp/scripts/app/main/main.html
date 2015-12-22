@@ -1,0 +1,118 @@
+<div ng-cloak>
+	<div class="row">
+
+		<!--Start Content-->
+		<div id="ct" class="">
+			<div class="" ng-switch="isAuthenticated()">
+				<div class="" ng-switch-when="false">
+					<div class="col-md-12">
+						<h1 id="about" class="title1 text-center">
+							Bienvenido a <span class="azul">Team Study</span>
+						</h1>
+						<p class="subtitulo text-center">No es introducir la web en el
+							aula, es intregar el aula en la web.</p>
+						<div class="space"></div>
+						<div class="row">
+							<div class="col-md-6">
+								<div style="height: 500px">
+									<carousel interval="myInterval"> <slide
+										ng-repeat="slide in slides" active="slide.active"> <img
+										ng-src="{{slide.image}}" style="margin: auto;">
+
+									<div class="carousel-caption">
+										<!-- 										<h4>Slide {{$index}}</h4> -->
+										<!-- 										<p>{{slide.text}}</p> -->
+									</div>
+									</slide> </carousel>
+								</div>
+
+								<div class="space"></div>
+							</div>
+							<div class="col-md-6 parrafos subtitulo">
+								<h4>
+									<p>Team Study es una aplicaci&oacuten web organizada en
+										grupos, dirigida a academias y colegios privados.</p>
+
+									<br>
+									<p>Los alumnos y profesores podr&aacuten compartir
+										informaci&oacuten de inter&eacutes a trav&eacutes de Team
+										Study. Y podr&aacuten beneficiarse de las ventajas del trabajo
+										en equipo.</p>
+									<br>
+									<p>Es una aplicaci&oacuten muy f&aacutecil de manejar y se
+										compone de herramientas ya conocidas en la web como son:</p>
+								</h4>
+							</div>
+							<ul class="list-unstyled enumerado">
+								<li><i class="fa fa-caret-right pr-10 text-colored flechas"></i>
+									Wiki</li>
+								<li><i class="fa fa-caret-right pr-10 text-colored flechas"></i>
+									Repositorio de documentos</li>
+								<li><i class="fa fa-caret-right pr-10 text-colored flechas"></i>
+									Foro</li>
+								<li><i class="fa fa-caret-right pr-10 text-colored flechas"></i>
+									Chat</li>
+								<li><i class="fa fa-caret-right pr-10 text-colored flechas"></i>
+									Panel de Control</li>
+							</ul>
+
+
+						</div>
+						<hr />
+						<p class="title1" style="font-size: x-large;">
+							Visite nuestra página web corporativa en <a
+								href="http://www.teamstudy.me">www.teamstudy.me</a>
+						</p>
+						<hr />
+					</div>
+
+					<br> <br>
+
+					<div id="" class=" enlaces text-center">
+						<ul>
+							<li ui-sref-active="active"><a ui-sref="laws">Privacidad
+									|</a></li>
+							<li ui-sref-active="active"><a ui-sref="cookies">Cookies
+									|</a></li>
+							<li ui-sref-active="active"><a ui-sref="equipo">Equipo |</a></li>
+							<li ui-sref-active="active"><a ui-sref="contacta">Contacta
+									con nosotros</a></li>
+						</ul>
+					</div>
+					<p class="text-center">Copyright &copy 2015 Team Study.</p>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<br> <br>
+	<div class="title1 text-center alert-danger" role="alert"
+				ng-show="isInRole('ROLE_ADMIN')">
+				<br>
+				<h1>
+					&iexclBienvenido a <span class="azul">Team Study!</span>
+				</h1>
+				<p class="subtitulo text-center">Elija un grupo para comenzar a
+					gestionarlo.</p>
+				<br>
+			</div>
+	
+	<div class="title1 text-center alert-danger" role="alert"
+		ng-show="isInRole('ROLE_USER')">
+		<br>
+			 Hola <b class="azul">{{account.firstName}}</b>
+		<br>
+		<br>
+		<h1>
+			&iexclBienvenido a <span class="azul">Team Study!</span>
+		</h1>
+		<p class="subtitulo text-center">Elija un grupo para comenzar a
+			estudiar en equipo.</p>
+		<br>
+	</div>
+
+
+</div>
+
+
+

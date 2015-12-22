@@ -1,0 +1,133 @@
+<div ng-cloak>
+	<div class="row">
+		<!--Start Content-->
+		<div id="ct" class="">
+
+			<div class="btn-group btn-group-justified" role="group"
+				ng-show="isInRole[0]=='ROLE_USER'">
+				<div ui-sref-active="active" class="btn-group" role="group">
+					<button ui-sref="wiki({ groupId: groupId })" type="button"
+						class="btn btn-principal">Wiki</button>
+				</div>
+				<div ui-sref-active="active" class="btn-group" role="group">
+					<button ui-sref="folder({ groupId: groupId })" type="button"
+						class="btn btn-default">Repositorio</button>
+				</div>
+				<div ui-sref-active="active" class="btn-group" role="group">
+					<button ui-sref="thread({ groupId: groupId })" type="button"
+						class="btn btn-default">Foro</button>
+				</div>
+				<div ui-sref-active="active" class="btn-group" role="group" ng-if="account.isTeacher == 'true'">
+					<button ui-sref="dashboard" type="button" class="btn btn-default">Dashboard</button>
+				</div>
+			</div>
+			<div class="col-md-12" id="">
+				<div class="container">
+					<div ng-if="account.isTeacher == 'true'">
+						<button class="btn " data-toggle="modal"
+							data-target="#saveNewsModal" ng-click="clear()"><h4><span class="glyphicon glyphicon-bullhorn" 
+							aria-hidden="true"></span> Nueva noticia</h4></button>
+					</div>
+					<div class="modal fade" id="saveNewsModal" tabindex="-1"
+						role="dialog" aria-labelledby="myNewsLabel" aria-hidden="true"
+						style="display: none;">
+						<div class="modal-dialog">
+							<div class="modal-content" style="margin: 90px; z-index=99999;">
+								<form name="editForm" role="form" novalidate=""
+									ng-submit="createNews()" show-validation=""
+									class="ng-valid ng-pristine">
+
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal"
+											aria-hidden="true" ng-click="clear()">×</button>
+										<h4 class="modal-title ng-scope" id="myThreadLabel"
+											translate="">Crear noticia</h4>
+									</div>
+									<div class="modal-body">
+										<div class="form-group">
+											<label translate="" class="ng-scope">T&iacutetulo</label> <input autofocus
+												type="text" maxlength="15" placeholder="Puede tener 15 caracteres como maximo"
+												required="required"
+												class="form-control ng-valid ng-pristine ng-untouched"
+												name="title" ng-model="news.title">
+
+											<div ng-show="editForm.title.$invalid" class="ng-hide">
+											</div>
+										</div>
+										<div class="form-group">
+											<label translate="" class="ng-scope">Descripci&oacuten</label> <input 
+												type="text" maxlength="100" placeholder="Introduzca una breve descripción"
+												required="required" size="100"
+												class="form-control ng-valid ng-pristine ng-untouched"
+												name="description" ng-model="news.description">
+
+											<div ng-show="editForm.description.$invalid" class="ng-hide">
+											</div>
+										</div>
+
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-default"
+											data-dismiss="modal" ng-click="clear()">
+											<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span
+												translate="" class="ng-scope">Cancelar</span>
+										</button>
+										
+										<button type="submit" ng-disabled="editForm.$invalid"
+											class="btn btn-primary">
+											<span class="glyphicon glyphicon-save"></span>&nbsp;<span
+												translate="" class="ng-scope">Guardar</span>
+										</button>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="alert alert-success alert-dismissible" style="margin: 15px; role="alert">
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+
+				<div ng-repeat="new in news | orderBy:'-creationMoment' | limitTo:5" id="" class="" ng-if="new.groupId == groupId">
+					<b class="h4 negrita"><span
+						class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						{{new.title}}: </b> {{new.description}}
+						----
+						<b>{{new.creationMoment | date:'dd/MMM/yyyy'}}</b>
+				</div>
+			</div><!-- Hasta aquí el div del alert -->
+		</div>
+		
+	</div>
+	<div class="alert alert-danger alert-dismissible" style="margin: 15px; role="alert" ng-if="account.isTeacher == 'true' && screenSize <= 480">
+				<button type="button" class="close" data-dismiss="alert"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			<h5>La wiki no puede ser editada en dispositivos móviles, disculpen las molestias.</h5>
+				
+			</div>
+	<div ng-if="account.isTeacher == 'true' && screenSize > 480">
+			<textarea ckeditor="editorOptions" ng-model=group.wiki.text></textarea><br>
+			<button type="button" class="btn btn-default" ng-click="save()">
+				Publicar</button> {{success}}
+			<div class="alert alert-success" ng-show="success" translate="">
+                <strong>El registro ha sido realizado correctamente</strong> &iexclYa puedes empezar a trabajar en equipo!
+            </div>
+		</div>
+
+		<div class="box-content" style="margin: 15px;"
+			ng-if="account.isTeacher == 'false' || screenSize <= 480">
+			<p ng-bind-html="trustAsHtml(group.wiki.text)"></p>
+			
+		</div>
+		
+	
+</div>
+
+
+
+

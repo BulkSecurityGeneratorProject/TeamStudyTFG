@@ -1,0 +1,12 @@
+.classpath
+.project
+/.settings
+/target
+/node_modules
+/.tmp
+npm-debug.log
+.editorconfig
+.jshintrc
+/src/main/webapp/bower_components
+
+/bin/

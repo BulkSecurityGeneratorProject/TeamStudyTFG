@@ -1,0 +1,182 @@
+<div>
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <h1 class = "title1" translate="">Registrar</h1>
+
+            <div class="alert alert-success" ng-show="success" translate="">
+                <strong>El registro ha sido realizado correctamente</strong> &iexclYa puedes empezar a trabajar en equipo!
+            </div>
+
+            <div class="alert alert-danger" ng-show="error" translate="">
+                <strong>Fallo al registrar</strong> Por favor, intentar de nuevo.
+            </div>
+
+            <div class="alert alert-danger" ng-show="errorUserExists" translate="">
+                <strong>El nombre ya est&aacute en uso</strong> Por favor, elija otro nombre.
+            </div>
+
+            <div class="alert alert-danger" ng-show="errorEmailExists" translate="">
+                <strong>El E-mail est&aacute en uso</strong> Por favor, elija otro.
+            </div>
+
+            <div class="alert alert-danger" ng-show="doNotMatch" translate="">
+                La contrase&ntildea y su confirmaci�n no coinciden
+            </div>
+
+            <form ng-show="!success" name="form" role="form" novalidate ng-submit="register()" show-validation>
+            	<img ng-src="{{ registerAccount.imageSRC }}" ng-show="registerAccount.imageUrl == null" style="width: 150px; height: 150px; margin-left:40%; border: 0px" /><br/>
+            	<img ng-src="{{ registerAccount.imageUrl }}" ng-show="registerAccount.imageUrl != null" style="width: 150px; height: 150px; margin-left:40%; border: 0px" /><br/>
+				<div class="form-group">
+                    <label translate="">Imagen</label>
+                    <input type="text" class="form-control" name="imageUrl" placeholder="Elije una imagen de perfil para comenzar"
+                           ng-model="registerAccount.imageUrl">     
+                </div>
+                
+                <div class="form-group">
+                    <label translate="">Nombre</label>
+                    <input type="text" class="form-control" name="firstName" placeholder="Introduzca un nombre"
+                           ng-model="registerAccount.firstName" ng-minlength=1 ng-maxlength=50 required>
+                    <div ng-show="form.firstName.$dirty && form.firstName.$invalid">
+                        <p class="help-block"
+                               ng-show="form.firstName.$error.required" translate="">
+                            El nombre es obligatorio.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.firstName.$error.minlength" translate="">
+                             El nombre debe tener m&aacutes de 1 car&aacutecter.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.firstName.$error.maxlength" translate="">
+                            El nombre no debe tener m&aacutes de 50 car&aacutecteres.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.firstName.$error.pattern" translate="">
+                           Su nombre  solo puede contener letras min&uacutesculas y d&iacutegitos
+                    </p>
+                    </div>
+                    
+                </div>
+                
+                 <div class="form-group">
+                    <label translate="">Apellidos</label>
+                    <input type="text" class="form-control" name="lastName" placeholder="Introduzca los apellidos"
+                           ng-model="registerAccount.lastName" ng-minlength=1 ng-maxlength=50 required>
+                    
+                    <div ng-show="form.lastName.$dirty && form.lastName.$invalid">
+                        <p class="help-block"
+                               ng-show="form.lastName.$error.required" translate="">
+                            El apellido es obligatorio.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.lastName.$error.minlength" translate="">
+                             El apellido debe tener m&aacutes de 1 car&aacutecter.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.lastName.$error.maxlength" translate="">
+                            El apellido no debe tener m&aacutes de 50 car&aacutecteres.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.lastName.$error.pattern" translate="">
+                           Su apellido  solo puede contener letras min&uacutesculas y d&iacutegitos
+                    </p>
+                    </div>
+                    
+                </div>
+                
+                <div class="form-group">
+                    <label translate="">Nombre de usuario</label>
+                    <input type="text" class="form-control" name="login" placeholder="Introduzca un nombre de usuario"
+                           ng-model="registerAccount.login" ng-minlength=1 ng-maxlength=50 ng-pattern="/^[a-z0-9]*$/" required>
+                    <div ng-show="form.login.$dirty && form.login.$invalid">
+                        <p class="help-block"
+                               ng-show="form.login.$error.required" translate="">
+                            El nombre de usuario es obligatorio.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.login.$error.minlength" translate="">
+                             El nombre de usuario debe tener m&aacutes de 1 car&aacutecter.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.login.$error.maxlength" translate="">
+                            El nombre de usuario no debe tener m&aacutes de 50 car&aacutecteres.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.login.$error.pattern" translate="">
+                           Su nombre de usuario solo puede contener letras min&uacutesculas y d&iacutegitos
+                    </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label translate="">E-mail</label>
+                    <input type="email" class="form-control" name="email" placeholder="Intruduzca E-mail"
+                           ng-model="registerAccount.email" ng-minlength=5 ng-maxlength=100 required>
+                    <div ng-show="form.email.$dirty && form.email.$invalid">
+                        <p class="help-block"
+                               ng-show="form.email.$error.required" translate="">
+                            El E-mail es obligatorio.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.email.$error.email" translate="">
+                             El E-mail es incorrecto.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.email.$error.minlength" translate="">
+                            El E-mail debe tener m&aacutes de 5 car&aacutecter.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.email.$error.maxlength" translate="">
+                             El E-mail no debe tener m&aacutes de 50 car&aacutecteres.
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label translate="">Contrase&ntildea</label>
+                    <input type="password" class="form-control" name="password" placeholder="Introducir password"
+                           ng-model="registerAccount.password" ng-minlength=5 ng-maxlength=50 required>
+                    <div ng-show="form.password.$dirty && form.password.$invalid">
+                        <p class="help-block"
+                               ng-show="form.password.$error.required" translate="">
+                            La contrase&ntildea es obligatoria.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.password.$error.minlength" translate="">
+                             La contrase&ntildea debe tener m&aacutes de 5 car&aacutecter.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.password.$error.maxlength" translate="">
+                            La contrase&ntildea no debe tener m&aacutes de 50 car&aacutecteres.
+                        </p>
+                    </div>
+                    <password-strength-bar password-to-check="registerAccount.password"></password-strength-bar>
+                </div>
+                <div class="form-group">
+                    <label translate="">Confirmar Contrase&ntildea</label>
+                    <input type="password" class="form-control" name="confirmPassword" placeholder="Confirmar password"
+                           ng-model="confirmPassword" ng-minlength=5 ng-maxlength=50 required>
+                    <div ng-show="form.confirmPassword.$dirty && form.confirmPassword.$invalid">
+                        <p class="help-block"
+                               ng-show="form.confirmPassword.$error.required" translate="">
+                            La confirmaci&oacuten de la contrase&ntildea es obligatoria.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.confirmPassword.$error.minlength" translate="">
+                            La confirmaci&oacuten de la contrase&ntildea debe tener m&aacutes de 5 car&aacutecter.
+                        </p>
+                        <p class="help-block"
+                               ng-show="form.confirmPassword.$error.maxlength" translate="">
+                             La confirmaci&oacuten de la no debe tener m&aacutes de 50 car&aacutecteres.
+                        </p>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label translate="">Seleccionar la opci&oacuten adecuada</label> <br/>
+                    <input type="radio" class="form-horizontal" name="isTeacher" ng-model="registerAccount.isTeacher" value="true">  Profesor<br/>
+					<input type="radio" class="form-horizontal" name="isTeacher" ng-model="registerAccount.isTeacher" value="false"> Alumno<br/>
+                </div>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary" translate="">Terminado</button>
+            </form>
+            
+            <p></p>
+        </div>
+    </div>
+</div>
